@@ -126,5 +126,5 @@ add_library(libslic3r_gui STATIC
     AppControllerWx.cpp
 )
 
-target_link_libraries(libslic3r_gui libslic3r avrdude)
+target_link_libraries(libslic3r_gui libslic3r avrdude imgui)
 add_precompiled_header(libslic3r_gui pchheader.hpp FORCEINCLUDE)
