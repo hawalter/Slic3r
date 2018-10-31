@@ -624,20 +624,21 @@ private:
 #if ENABLE_EXTENDED_SELECTION
         void render_current_gizmo(const Selection& selection) const;
         void render_current_gizmo_for_picking_pass(const Selection& selection) const;
+        void render_overlay(const GLCanvas3D& canvas, const Selection& selection) const;
 #else
         void render_current_gizmo(const BoundingBoxf3& box) const;
         void render_current_gizmo_for_picking_pass(const BoundingBoxf3& box) const;
-#endif // ENABLE_EXTENDED_SELECTION
-
         void render_overlay(const GLCanvas3D& canvas) const;
+#endif // ENABLE_EXTENDED_SELECTION
 
     private:
         void _reset();
 
-        void _render_overlay(const GLCanvas3D& canvas) const;
 #if ENABLE_EXTENDED_SELECTION
+        void _render_overlay(const GLCanvas3D& canvas, const Selection& selection) const;
         void _render_current_gizmo(const Selection& selection) const;
 #else
+        void _render_overlay(const GLCanvas3D& canvas) const;
         void _render_current_gizmo(const BoundingBoxf3& box) const;
 #endif // ENABLE_EXTENDED_SELECTION
 

@@ -24,6 +24,8 @@
 #define ENABLE_MIRROR (1 && ENABLE_1_42_0)
 // Modified camera target behavior
 #define ENABLE_MODIFIED_CAMERA_TARGET (1 && ENABLE_1_42_0)
+// Scene's GUI made using imgui library
+#define ENABLE_IMGUI (1 && ENABLE_1_42_0)
 
 #endif // _technologies_h_
 

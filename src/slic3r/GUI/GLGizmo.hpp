@@ -114,6 +114,9 @@ public:
 #if ENABLE_EXTENDED_SELECTION
     void render(const GLCanvas3D::Selection& selection) const { on_render(selection); }
     void render_for_picking(const GLCanvas3D::Selection& selection) const { on_render_for_picking(selection); }
+#if ENABLE_IMGUI
+    void render_input_window(float x, float y, const GLCanvas3D::Selection& selection) const { on_render_input_window(x, y, selection); }
+#endif // ENABLE_IMGUI
 #else
     void render(const BoundingBoxf3& box) const { on_render(box); }
     void render_for_picking(const BoundingBoxf3& box) const { on_render_for_picking(box); }
@@ -142,6 +145,9 @@ protected:
 #if ENABLE_EXTENDED_SELECTION
     virtual void on_render(const GLCanvas3D::Selection& selection) const = 0;
     virtual void on_render_for_picking(const GLCanvas3D::Selection& selection) const = 0;
+#if ENABLE_IMGUI
+    virtual void on_render_input_window(float x, float y, const GLCanvas3D::Selection& selection) const {}
+#endif // ENABLE_IMGUI
 #else
     virtual void on_render(const BoundingBoxf3& box) const = 0;
     virtual void on_render_for_picking(const BoundingBoxf3& box) const = 0;
@@ -295,6 +301,9 @@ protected:
             g.render_for_picking(selection);
         }
     }
+#if ENABLE_IMGUI
+    virtual void on_render_input_window(float x, float y, const GLCanvas3D::Selection& selection) const;
+#endif // ENABLE_IMGUI
 #else
     virtual void on_render(const BoundingBoxf3& box) const;
     virtual void on_render_for_picking(const BoundingBoxf3& box) const
@@ -350,6 +359,9 @@ protected:
 #if ENABLE_EXTENDED_SELECTION
     virtual void on_render(const GLCanvas3D::Selection& selection) const;
     virtual void on_render_for_picking(const GLCanvas3D::Selection& selection) const;
+#if ENABLE_IMGUI
+    virtual void on_render_input_window(float x, float y, const GLCanvas3D::Selection& selection) const;
+#endif // ENABLE_IMGUI
 #else
     virtual void on_render(const BoundingBoxf3& box) const;
     virtual void on_render_for_picking(const BoundingBoxf3& box) const;
@@ -406,6 +418,9 @@ protected:
 #if ENABLE_EXTENDED_SELECTION
     virtual void on_render(const GLCanvas3D::Selection& selection) const;
     virtual void on_render_for_picking(const GLCanvas3D::Selection& selection) const;
+#if ENABLE_IMGUI
+    virtual void on_render_input_window(float x, float y, const GLCanvas3D::Selection& selection) const;
+#endif // ENABLE_IMGUI
 #else
     virtual void on_render(const BoundingBoxf3& box) const;
     virtual void on_render_for_picking(const BoundingBoxf3& box) const;
